@@ -67,6 +67,20 @@ O foco base dele é fornecer uma estrutura educacional em que o aluno possa evol
 - **Secrets Manager:** Gerenciamento de credenciais
 - **STS:** Tokens temporários de acesso
 
+### APIs e Rotas Principais
+**Rotas de Sistema:**
+- `/api/versao` - Retorna versão da aplicação (ex: "Bia 4.2.0")
+
+**Rotas de Dados (Conectadas ao PostgreSQL):**
+- `/api/tarefas` - Retorna lista de tarefas do banco de dados
+  - Exemplo de resposta: `[{"uuid":"5b7d5e30-6ec9-11f0-9398-170da99baefe","titulo":"teste banco rds","dia_atividade":"dia 3","importante":true,"createdAt":"2025-08-01T11:19:15.092Z","updatedAt":"2025-08-01T11:19:15.092Z"}]`
+
+### Conectividade com Banco de Dados
+- **Status:** ✅ Funcionando corretamente
+- **Endpoint RDS:** bia.clkakwimkm5g.us-east-1.rds.amazonaws.com:5432
+- **Teste de Conectividade:** Confirmado via rota `/api/tarefas`
+- **Security Groups:** Configurados adequadamente (bia-web → bia-db)
+
 ### Pontos de Atenção
 1. **Segurança:** Credenciais hardcoded no compose.yml (apenas para desenvolvimento)
 2. **Escalabilidade:** Aplicação monolítica, mas bem estruturada
